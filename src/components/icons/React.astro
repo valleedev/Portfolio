@@ -1,0 +1,43 @@
+---
+const { class: className = "w-5 h-5" } = Astro.props
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  class={className}
+  aria-hidden="true"
+>
+  <g fill="none" stroke="currentColor" stroke-width="12">
+    <circle cx="128" cy="128" r="16" fill="currentColor" />
+
+    <!-- Órbita 1 -->
+    <ellipse
+      cx="128"
+      cy="128"
+      rx="88"
+      ry="32"
+      transform="rotate(0 128 128)"
+    />
+
+    <!-- Órbita 2 -->
+    <ellipse
+      cx="128"
+      cy="128"
+      rx="88"
+      ry="32"
+      transform="rotate(60 128 128)"
+    />
+
+    <!-- Órbita 3 -->
+    <ellipse
+      cx="128"
+      cy="128"
+      rx="88"
+      ry="32"
+      transform="rotate(120 128 128)"
+    />
+  </g>
+</svg>
+
+

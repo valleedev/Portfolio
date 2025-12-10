@@ -1,0 +1,43 @@
+---
+const { class: className = "w-5 h-5" } = Astro.props
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  class={className}
+  aria-hidden="true"
+>
+  <!-- Fondo de gota / base de datos -->
+  <path
+    d="M128 24C82 24 48 48 48 80v96c0 32 34 56 80 56s80-24 80-56V80c0-32-34-56-80-56Z"
+    fill="currentColor"
+    fill-opacity="0.08"
+    stroke="currentColor"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+
+  <!-- Silueta de delfín (inspirado en el logo de MySQL) -->
+  <path
+    d="M64 152c24-40 56-64 92-64c10 0 20 2 30 6
+       c-4-16-14-32-30-44c-14-10-30-14-46-12
+       c6 8 8 16 8 24c-10-6-22-10-36-10
+       c-10 0-18 2-26 4"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M116 104c10 10 18 24 22 40c4 16 14 28 30 36"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
+
+

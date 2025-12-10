@@ -1,0 +1,38 @@
+---
+const { class: className = "w-5 h-5" } = Astro.props
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  class={className}
+  aria-hidden="true"
+>
+  <!-- Hexágono -->
+  <path
+    d="M128 16L32 72v112l96 56l96-56V72z"
+    fill="currentColor"
+    fill-opacity="0.1"
+    stroke="currentColor"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+
+  <!-- JS -->
+  <path
+    d="M112 104v60c0 10-6 18-18 18c-6.5 0-11.8-2.2-15.5-6.4"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+  <path
+    d="M144 164c3.2 6 9.4 10 17.5 10c9.7 0 16.5-5.8 16.5-14.3c0-8.6-5.6-12.1-14.6-14.8l-4.2-1.3c-11.9-3.6-19.5-10-19.5-22.1c0-12.2 9.4-21.1 22.6-21.1c10.4 0 18.1 4.5 22.4 12.7"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+</svg>
+
+

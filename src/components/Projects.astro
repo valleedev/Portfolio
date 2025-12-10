@@ -2,6 +2,9 @@
 import GitHub from "./icons/GitHub.astro"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
+import ReactIcon from "./icons/React.astro"
+import NodeJSIcon from "./icons/NodeJS.astro"
+import MySQLIcon from "./icons/MySQL.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
 
@@ -16,23 +19,53 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  REACT: {
+    name: "React",
+    class: "bg-blue-500 text-white",
+    icon: ReactIcon,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-green-600 text-white",
+    icon: NodeJSIcon,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-[#00618A] text-white",
+    icon: MySQLIcon,
+  },
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "Perfumeria Palomino - Gestor de Ventas",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Gestor de ventas para una perfumeria de la Belén de Umbría, Colombia. Permite gestionar las ventas, clientes, productos, proveedores y generación de reportes.",
+    image: "/projects/perfumeriapalomino.jpeg",
+    tags: [TAGS.REACT, TAGS.NODE, TAGS.TAILWIND],
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "Auto-Notion-Scheduler - Automatización de tareas en Notion",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
+      "Automatización de tareas en Notion. Creada desde cero con Node.js y la API de Notion enfocada en la automatización de mis tareas diarias.",
+    image: "/projects/autonotion.png",
+    github: "https://github.com/valleedev/auto-notion-scheduler",
+    tags: [TAGS.NODE],
+  },
+  {
+    title: "SENAG - Sistema de seguimiento acádemico",
+    description:
+      "Sistema de seguimiento acádemico desarrollado como proyecto final para la carrera Tecnología en Análisis y Desarrollo de Software. Enfocada en realizar seguimiento a las compotencias de los aprendices del SENA.",
+    image: "/projects/senag.png",
+    link: "https://senag.app/",
+    tags: [TAGS.NODE, TAGS.REACT, TAGS.TAILWIND, TAGS.MYSQL],
+  },
+  {
+    title: "TalentoYa landing page - Gestión de talento humano",
+    description:
+      "Landing page desarrollada para atraer empresas y pymes a que usen la plataforma de TalentoYa. Con la finalidad de que puedan gestionar mejor el talento humano de sus empresas.",
+    image: "/projects/talentoYa.png",
+    github: "https://github.com/valleedev/YalentoYa-Landing",
+    link: "https://talentoya.vercel.app/",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
 ]
