@@ -1,0 +1,36 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Actualmente...",
+    title: "Desarrollador Full Stack",
+    company: "Fabrica de Software - Centro de Diseño e Innovación Tecnológica Industrial",
+    description:
+      "Responsable del desarrollo del módulo de portafolio del aprendiz, gestor de los archivos privados de los aprendices. Además, participo en el desarrollo del lado del servidor del aplicativo Zajuna, creando y probando scripts para procesos privados."
+  },
+  {
+    date: "2022 - 2023",
+    title: "Lider de Desarrollo",
+    company: "Raptor Technologies",
+    description:
+      "Responsable de la gestión del equipo de desarrollo de una aplicación para una constructora de la ciudad de Armenia, aplicando metodologías ágiles y participando activamente tanto en el desarrollo frontend como en el backend.",
+  },
+  {
+    date: "2023 - 2024",
+    title: "Desarrollador Freelance",
+    company: "Freelance",
+    description:
+      "Desarrollé múltiples proyectos a la medida para distintos clientes, cumpliendo expectativas, tiempos de entrega y estándares de calidad.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
