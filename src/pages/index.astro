@@ -10,42 +10,79 @@ import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
 import TitleSection from "@/components/TitleSection.astro"
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Johan Sebastian Valle B.",
+    alternateName: ["J. Sebastian Valle", "Johan Sebastián Valle"],
+    jobTitle: "Desarrollador de software fullstack",
+    url: "https://portfolio.jsvb.dev",
+    image: "https://portfolio.jsvb.dev/sebasvalle.webp",
+    sameAs: [
+      "https://linkedin.com/in/sebasvalle",
+      "https://github.com/valleedev",
+    ],
+    email: "mailto:vallebarbaranj@gmail.com",
+    description:
+      "Desarrollador de software y web fullstack freelance con más de 4 años de experiencia creando aplicaciones a medida para empresas y startups.",
+    knowsAbout: [
+      "desarrollo de software",
+      "desarrollo web fullstack",
+      "React",
+      "Next.js",
+      "Node.js",
+      "NestJS",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Portafolio de Johan Sebastian Valle B.",
+    url: "https://portfolio.jsvb.dev",
+    inLanguage: "es",
+    description:
+      "Portafolio de Johan Sebastian Valle B., desarrollador de software y web fullstack freelance especializado en proyectos remotos para startups y empresas.",
+  },
+]
 ---
 
 <Layout
-  title="Porfolio de J. Sebastian Valle - Análista y Desarrollador de Software con +4 años de experiencia"
-  description="Contrata a J. Sebastian Valle para crear tu aplicativo. Analista y Desarrollador de Software. Especializado en crear aplicativos únicos."
+  title="Johan Sebastian Valle B. | Desarrollador de software fullstack freelance"
+  description="Portafolio de Johan Sebastian Valle B., desarrollador de software y web fullstack. Trabajo como freelance remoto ayudando a startups y empresas a crear aplicaciones a medida."
 >
+  <script slot="head" type="application/ld+json">
+    {JSON.stringify(structuredData, null, 2)}
+  </script>
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
-      <Hero>
-      </slot>
-    </Hero>
+      <Hero />
     </SectionContainer>
     <div class="space-y-24">
-    <SectionContainer id="experiencia">
-      <TitleSection>
-        <Briefcase class="size-8" />
-        Experiencia laboral
-      </TitleSection>
-      <Experience />
-    </SectionContainer>
+      <SectionContainer id="experiencia">
+        <TitleSection>
+          <Briefcase class="size-8" />
+          Experiencia laboral
+        </TitleSection>
+        <Experience />
+      </SectionContainer>
 
-    <SectionContainer id="proyectos">
-      <TitleSection>
-        <CodeIcon class="size-7" />
-        Proyectos
-      </TitleSection>
-      <Projects />
-    </SectionContainer>
+      <SectionContainer id="proyectos">
+        <TitleSection>
+          <CodeIcon class="size-7" />
+          Proyectos
+        </TitleSection>
+        <Projects />
+      </SectionContainer>
 
-    <SectionContainer id="sobre-mi">
-      <TitleSection>
-        <ProfileCheck class="size-8" />
-        Sobre mí
-      </TitleSection>
-      <AboutMe />
-    </SectionContainer>
-  </div>
+      <SectionContainer id="sobre-mi">
+        <TitleSection>
+          <ProfileCheck class="size-8" />
+          Sobre mí
+        </TitleSection>
+        <AboutMe />
+      </SectionContainer>
+    </div>
   </main>
 </Layout>

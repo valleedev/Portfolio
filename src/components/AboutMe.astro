@@ -1,5 +1,6 @@
 ---
- const personalImageAlt = "J. Sebastian Valle"
+const personalImageAlt =
+  "Foto de Johan Sebastian Valle B. trabajando como desarrollador de software"
 ---
 
 <article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
@@ -20,8 +21,10 @@
   </div>
 
   <img
-    src="/me.png"
+    src="/sebasvalle2.webp"
     alt={personalImageAlt}
+    loading="lazy"
+    decoding="async"
     class="order-1 w-80 h-80 p-1 md:order-2 rotate-3 lg:p-2 lg:w-80 rounded-2xl object-cover object-top bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
   />
 
