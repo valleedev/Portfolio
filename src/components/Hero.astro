@@ -4,6 +4,7 @@ const personalImageAlt =
 import Badge from "@/components/Badge.astro"
 import LinkedInIcon from "@/components/icons/LinkedIn.astro"
 import MailIcon from "@/components/icons/Mail.astro"
+import DownloadIcon from "@/components/icons/Download.astro"
 import SocialPill from "@/components/SocialPill.astro"
 ---
 
@@ -30,10 +31,9 @@ import SocialPill from "@/components/SocialPill.astro"
   </h1>
   <p
     class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-  >
-    +4 años de experiencia. <strong
+  ><strong
       >Análista y Desarrollador de Software</strong
-    > de Colombia  🇨🇴. Especializado en el desarrollo de aplicativos únicos.
+    > en Colombia  🇨🇴. Especializado en el desarrollo de aplicativos únicos.
     reconocido por mi capacidad para resolver problemas complejos y optimizar procesos.
   </p>
   <nav class="flex flex-wrap gap-4 mt-8">
@@ -44,6 +44,10 @@ import SocialPill from "@/components/SocialPill.astro"
     <SocialPill href="https://linkedin.com/in/sebasvalle">
       <LinkedInIcon class="size-4" />
       LinkedIn
+    </SocialPill>
+    <SocialPill href="/Johan Sebastian Valle B. Curriculum.pdf" download variant="primary">
+      <DownloadIcon class="size-4" />
+      Descargar CV
     </SocialPill>
   </nav>
 </div>
