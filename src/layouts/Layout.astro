@@ -13,7 +13,8 @@ interface Props {
 const { description, title } = Astro.props as Props
 
 const siteName = "Johan Sebastian Valle B."
-const defaultOgImage = "/sebasvalle.webp"
+const siteUrl = "https://portfolio.jsvb.dev"
+const defaultOgImage = `${siteUrl}/sebasvalle.webp`
 const defaultKeywords =
   "desarrollador de software, programador, analista y desarrollador de software, desarrollador web fullstack, desarrollador freelance, desarrollo web remoto, proyectos con startups"
 
@@ -34,26 +35,41 @@ const canonical = Astro.site
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={defaultKeywords} />
+    <meta name="author" content={siteName} />
+    <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#030712" media="(prefers-color-scheme: dark)" />
 
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Open Graph / Facebook -->
     <meta property="og:site_name" content={siteName} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={defaultOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/webp" />
     <meta
       property="og:image:alt"
       content="Foto de Johan Sebastian Valle B., desarrollador de software fullstack"
     />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sebasvalle" />
+    <meta name="twitter:creator" content="@sebasvalle" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={defaultOgImage} />
+    <meta
+      name="twitter:image:alt"
+      content="Foto de Johan Sebastian Valle B., desarrollador de software fullstack"
+    />
 
     <ViewTransitions />
 
