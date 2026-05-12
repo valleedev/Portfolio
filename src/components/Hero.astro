@@ -5,6 +5,7 @@ import Badge from "@/components/Badge.astro"
 import LinkedInIcon from "@/components/icons/LinkedIn.astro"
 import MailIcon from "@/components/icons/Mail.astro"
 import DownloadIcon from "@/components/icons/Download.astro"
+import GitHubIcon from "@/components/icons/GitHub.astro"
 import SocialPill from "@/components/SocialPill.astro"
 ---
 
@@ -27,13 +28,12 @@ import SocialPill from "@/components/SocialPill.astro"
   <h1
     class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
   >
-    Hey, soy Johan Sebastian Valle B.
+    Johan Sebastian Valle B.
   </h1>
   <p
     class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-  ><strong
-      >Desarrollador Fullstack</strong
-    > en Colombia  🇨🇴. Diseño y construyo aplicaciones web a medida que hacen el trabajo más simple: menos tareas manuales, procesos más ordenados y productos listos para producción.
+  >
+    <strong>Desarrollador Fullstack</strong> especializado en <strong>React, Next.js, Node.js y NestJS</strong>. Transformo ideas en aplicaciones web robustas que automatizan procesos, reducen carga operativa y están listas para producción desde el día uno.
   </p>
   <nav class="flex flex-wrap gap-4 mt-8">
     <SocialPill href="mailto:vallebarbaranj@gmail.com">
@@ -43,6 +43,10 @@ import SocialPill from "@/components/SocialPill.astro"
     <SocialPill href="https://linkedin.com/in/sebasvalle">
       <LinkedInIcon class="size-4" />
       LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/valleedev">
+      <GitHubIcon class="size-4" />
+      GitHub
     </SocialPill>
     <SocialPill href="/Johan Sebastian Valle B. Curriculum.pdf" download variant="primary">
       <DownloadIcon class="size-4" />

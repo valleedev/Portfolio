@@ -1,0 +1,62 @@
+---
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import ReactIcon from "./icons/React.astro"
+import NodeJSIcon from "./icons/NodeJS.astro"
+import MySQLIcon from "./icons/MySQL.astro"
+import NestJSIcon from "./icons/NestJS.astro"
+import PHPIcon from "./icons/PHP.astro"
+import TypeScriptIcon from "./icons/TypeScript.astro"
+import GitIcon from "./icons/Git.astro"
+import DockerIcon from "./icons/Docker.astro"
+
+const TECH_CATEGORIES = [
+  {
+    name: "Frontend",
+    technologies: [
+      { name: "React", icon: ReactIcon },
+      { name: "Next.js", icon: NextJS },
+      { name: "TypeScript", icon: TypeScriptIcon },
+      { name: "Tailwind CSS", icon: Tailwind },
+    ],
+  },
+  {
+    name: "Backend",
+    technologies: [
+      { name: "Node.js", icon: NodeJSIcon },
+      { name: "NestJS", icon: NestJSIcon },
+      { name: "PHP", icon: PHPIcon },
+    ],
+  },
+  {
+    name: "Herramientas",
+    technologies: [
+      { name: "MySQL", icon: MySQLIcon },
+      { name: "Git", icon: GitIcon },
+      { name: "Docker", icon: DockerIcon },
+    ],
+  },
+]
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {
+    TECH_CATEGORIES.map((category) => (
+      <div class="bg-white/50 dark:bg-gray-800/50 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">
+          {category.name}
+        </h3>
+        <ul class="space-y-3">
+          {category.technologies.map((tech) => (
+            <li class="flex items-center gap-3">
+              <tech.icon class="size-6" />
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                {tech.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>

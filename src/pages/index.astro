@@ -10,6 +10,8 @@ import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
 import TitleSection from "@/components/TitleSection.astro"
+import TechStack from "@/components/TechStack.astro"
+import LayersIcon from "@/components/icons/Layers.astro"
 
 const structuredData = [
   {
@@ -60,6 +62,14 @@ const structuredData = [
       <Hero />
     </SectionContainer>
     <div class="space-y-24">
+      <SectionContainer id="stack">
+        <TitleSection>
+          <LayersIcon class="size-8" />
+          Stack Técnico
+        </TitleSection>
+        <TechStack />
+      </SectionContainer>
+
       <SectionContainer id="experiencia">
         <TitleSection>
           <Briefcase class="size-8" />
