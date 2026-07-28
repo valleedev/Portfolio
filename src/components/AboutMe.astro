@@ -1,31 +1,58 @@
 ---
 const personalImageAlt =
-  "Foto de Johan Sebastian Valle B. trabajando como desarrollador de software"
+  "Foto de Johan Sebastian Valle B., desarrollador de software fullstack"
+
+const FACTS = [
+  { label: "Ubicación", value: "Colombia · Remoto" },
+  { label: "Idiomas", value: "Español · Inglés técnico" },
+  { label: "Disponibilidad", value: "Freelance y jornada completa" },
+]
 ---
 
-<article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
-  <div
-    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
-  >
-    <p>
-      Soy <strong>Johan Sebastián Valle</strong>, desarrollador <strong>Fullstack</strong> con experiencia construyendo aplicaciones web para startups, empresas y clientes independientes. Mi enfoque: usar la tecnología para resolver problemas reales, no para complicarlos.
-    </p>
-
-    <p>
-      Trabajo con <strong>comunicación clara y expectativas aterrizadas</strong>. Me gusta estructurar bien los proyectos, explicar el porqué de cada decisión técnica y mantener a todos alineados.
-    </p>
-
-    <p>
-      He liderado equipos de desarrollo, trabajado con clientes de distintos sectores y participado como jurado en competencias de desarrollo del SENA. Actualmente me desempeño como Desarrollador Full Stack en la Fábrica de Software del CDITI.
-    </p>
-  </div>
-
+<div class="grid grid-cols-1 items-start gap-[52px] md:grid-cols-[300px_1fr]">
   <img
-    src="/sebasvalle2.webp"
+    src="/sebasvalle.webp"
     alt={personalImageAlt}
     loading="lazy"
     decoding="async"
-    class="order-1 w-80 h-80 p-1 md:order-2 rotate-3 lg:p-2 lg:w-80 rounded-2xl object-cover object-top bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+    class="h-[300px] w-[242px] rounded-[20px] border border-[var(--line2)] object-cover object-top"
+    style="aspect-ratio: 1"
   />
-
-</article>
+  <div>
+    <div class="mb-5 flex items-baseline gap-3.5">
+      <span class="font-mono text-xs text-[var(--accent)]">04</span>
+      <h2 class="m-0 text-[34px] font-semibold tracking-[-0.03em] text-[var(--fg)]">
+        Sobre mí
+      </h2>
+    </div>
+    <p
+      class="mb-4 max-w-[64ch] text-[17px] leading-[1.7] text-[var(--muted)]"
+      style="text-wrap: pretty"
+    >
+      Uso la tecnología para resolver problemas reales, no para
+      complicarlos. Estructuro bien los proyectos, explico el porqué de
+      cada decisión técnica y mantengo a todo el mundo alineado.
+    </p>
+    <p
+      class="mb-6 max-w-[64ch] text-[17px] leading-[1.7] text-[var(--muted)]"
+      style="text-wrap: pretty"
+    >
+      He liderado equipos, trabajado con clientes de sectores muy
+      distintos y he sido jurado en competencias de desarrollo del SENA.
+    </p>
+    <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-3">
+      {
+        FACTS.map((fact) => (
+          <div class="rounded-[14px] border border-[var(--line)] p-[18px]">
+            <div class="font-mono text-[11px] uppercase tracking-[0.07em] text-[var(--muted)]">
+              {fact.label}
+            </div>
+            <div class="mt-[7px] text-[15px] font-medium text-[var(--fg)]">
+              {fact.value}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

@@ -1,136 +1,242 @@
 ---
-import GitHub from "./icons/GitHub.astro"
-import NextJS from "./icons/NextJS.astro"
-import Tailwind from "./icons/Tailwind.astro"
-import ReactIcon from "./icons/React.astro"
-import NodeJSIcon from "./icons/NodeJS.astro"
-import MySQLIcon from "./icons/MySQL.astro"
-import Link from "./icons/Link.astro"
-import LinkButton from "./LinkButton.astro"
-
-const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
-  REACT: {
-    name: "React",
-    class: "bg-blue-500 text-white",
-    icon: ReactIcon,
-  },
-  NODE: {
-    name: "Node.js",
-    class: "bg-green-600 text-white",
-    icon: NodeJSIcon,
-  },
-  MYSQL: {
-    name: "MySQL",
-    class: "bg-[#00618A] text-white",
-    icon: MySQLIcon,
-  },
-}
-const PROJECTS = [
-  {
-    title: "SENAG — Sistema de Seguimiento Académico",
-    description:
-      "Plataforma web desarrollada para el SENA que permite el seguimiento de competencias de aprendices en formación. Resuelve el problema de la gestión manual de avances académicos centralizando datos de progreso, generando reportes automáticos y facilitando la toma de decisiones por parte de instructores y coordinadores. Stack: Node.js, React, Tailwind CSS, MySQL. Deploy en producción.",
-    image: "/projects/senag.png",
-    link: "https://senag.app/",
-    tags: [TAGS.NODE, TAGS.REACT, TAGS.TAILWIND, TAGS.MYSQL],
-  },
-  {
-    title: "Perfumería Palomino — Gestor de Ventas",
-    description:
-      "Sistema de gestión de ventas para una perfumería en Belén de Umbría, Colombia. El problema: gestión manual de inventario, clientes y reportes que generaba errores y pérdida de horas semanales. La solución: una plataforma web con React y Node.js que centraliza ventas, clientes, productos, proveedores y reportes en tiempo real. Resultado: reducción del tiempo de registro de ventas en más de un 60%.",
-    image: "/projects/perfumeriapalomino.jpeg",
-    tags: [TAGS.REACT, TAGS.NODE, TAGS.TAILWIND],
-  },
-  {
-    title: "TalentoYa — Landing Page para Gestión de Talento",
-    description:
-      "Landing page desarrollada con Next.js y Tailwind CSS para atraer empresas y PYMES a la plataforma de gestión de talento humano TalentoYa. Enfocada en conversión y SEO, con diseño responsive y optimización de rendimiento (Lighthouse 95+). El sitio genera leads calificados para el equipo comercial.",
-    image: "/projects/talentoYa.png",
-    github: "https://github.com/valleedev/TalentoYa-Landing",
-    link: "https://talentoya.jsvb.dev",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
-  },
-  {
-    title: "Auto-Notion-Scheduler — Automatización de Tareas",
-    description:
-      "Herramienta de automatización construida desde cero con Node.js que integra la API de Notion para gestionar tareas diarias. Resuelve el problema de la repetición manual de tareas programadas, ejecutando acciones predefinidas en horarios configurables. Proyecto open source disponible en GitHub.",
-    image: "/projects/autonotion.png",
-    github: "https://github.com/valleedev/auto-notion-scheduler",
-    tags: [TAGS.NODE],
-  },
+const FILTERS = [
+  { key: "all", label: "Todos" },
+  { key: "react", label: "React" },
+  { key: "next", label: "Next.js" },
+  { key: "node", label: "Node.js" },
+  { key: "mysql", label: "MySQL" },
 ]
+
+const card =
+  "rounded-[22px] border border-[var(--line)] bg-[var(--card)] overflow-hidden transition duration-300 hover:-translate-y-[3px] hover:border-[var(--line2)] hover:shadow-[0_16px_32px_-20px_rgba(0,0,0,.35)]"
+const chip =
+  "font-mono text-[11px] rounded-[7px] border border-[var(--line)] px-[10px] py-[5px] text-[var(--muted)]"
 ---
 
-<div class="flex flex-col gap-y-16">
-  {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
-      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-        <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-            <img
-              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-              src={image}
-              alt={`Captura del proyecto ${title}`}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-
-        <div class="w-full md:w-1/2 md:max-w-lg">
-          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-            {title}
-          </h3>
-          <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2">
-              {
-                tags.map((tag) => (
-                  <li>
-                    <span
-                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                    >
-                      <tag.icon class="size-4" />
-                      {tag.name}
-                    </span>
-                  </li>
-                ))
-              }
-            </ul>
-
-            <div class="mt-2 text-gray-700 dark:text-gray-400">
-              {description}
-            </div>
-            <footer class="flex items-end justify-start mt-4 gap-x-4">
-              {
-                github && (
-                  <LinkButton href={github}>
-                    <GitHub class="size-6" />
-                    Code
-                  </LinkButton>
-                )
-              }
-              {
-                link && (
-                  <LinkButton href={link}>
-                    <Link class="size-4" />
-                    Preview
-                  </LinkButton>
-                )
-              }
-            </footer>
-          </div>
-        </div>
-      </article>
-    ))
-  }
+<div class="flex flex-wrap items-end justify-between gap-6">
+  <div>
+    <div class="flex items-baseline gap-3.5">
+      <span class="font-mono text-xs text-[var(--accent)]">02</span>
+      <h2 class="m-0 text-[34px] font-semibold tracking-[-0.03em] text-[var(--fg)]">
+        Proyectos
+      </h2>
+    </div>
+    <p class="mt-3 max-w-[60ch] text-base text-[var(--muted)]">
+      Problema, solución y resultado. Filtra por tecnología.
+    </p>
+  </div>
+  <div id="project-filters" class="flex flex-wrap gap-2">
+    {
+      FILTERS.map((f, i) => (
+        <button
+          data-filter={f.key}
+          class:list={[
+            "rounded-full border px-[14px] py-2 text-[13px] font-medium transition",
+            i === 0
+              ? "border-[var(--accent)] bg-[var(--accent)] text-[var(--accent-ink)]"
+              : "border-[var(--line)] bg-transparent text-[var(--muted)] hover:border-[var(--line2)] hover:text-[var(--fg)]",
+          ]}
+        >
+          {f.label}
+        </button>
+      ))
+    }
+  </div>
 </div>
+
+<div id="project-grid" class="mt-9 grid grid-cols-1 gap-5 md:grid-cols-2">
+  <article
+    data-tags="next supabase clerk"
+    class:list={[card, "md:col-span-2 grid md:grid-cols-[1.05fr_1fr]"]}
+  >
+    <div class="min-h-[220px] overflow-hidden border-b border-[var(--line)] md:border-b-0 md:border-r">
+      <img
+        src="/projects/talentoya-dashboard.png"
+        alt="Captura del proyecto TalentoYa"
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover object-top"
+      />
+    </div>
+    <div class="flex flex-col p-8">
+      <div class="mb-3.5 flex items-center gap-2">
+        <span class="rounded-[6px] bg-[var(--accent)] px-[9px] py-1 font-mono text-[11px] uppercase tracking-[0.06em] text-[var(--accent-ink)]">
+          Destacado
+        </span>
+        <span class="font-mono text-[11px] text-[var(--muted)]">95+ Lighthouse</span>
+      </div>
+      <h3 class="m-0 mb-2.5 text-2xl font-semibold tracking-[-0.02em] text-[var(--fg)]">
+        TalentoYa — Gestión de talento humano
+      </h3>
+      <p class="m-0 text-[15px] leading-[1.6] text-[var(--muted)]">
+        Aplicación completa de gestión de talento humano: empleados,
+        contratos, documentos, asistencia, permisos, vacaciones,
+        incapacidades y pagos en un solo panel. Autenticación con Clerk y
+        datos en Supabase; reemplaza el control manual en hojas de cálculo
+        con reportes y accesos por rol.
+      </p>
+      <div class="mt-[18px] flex flex-wrap gap-2">
+        <span class={chip}>Next.js</span>
+        <span class={chip}>Tailwind</span>
+        <span class={chip}>Supabase</span>
+        <span class={chip}>Clerk</span>
+      </div>
+      <div class="mt-auto flex gap-[18px] pt-6">
+        <a
+          href="https://www.talentoya.com.co/"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 text-[15px] font-semibold text-[var(--accent)]"
+        >
+          Ver en vivo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M9 7h8v8"></path></svg>
+        </a>
+        <a
+          href="https://github.com/valleedev/TalentoYa-Landing"
+          target="_blank"
+          rel="noopener"
+          class="text-[15px] text-[var(--muted)] hover:text-[var(--fg)]"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <article data-tags="react node mysql" class:list={[card, "flex flex-col"]}>
+    <div class="h-[200px] overflow-hidden border-b border-[var(--line)]">
+      <img
+        src="/projects/senag.png"
+        alt="Captura del proyecto SENAG"
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover object-top"
+      />
+    </div>
+    <div class="flex flex-1 flex-col p-6">
+      <div class="mb-3.5 inline-flex w-fit items-center gap-[7px] rounded-full border border-[var(--line)] bg-[var(--bg2)] px-[11px] py-[5px] font-mono text-[11px] text-[var(--accent)]">
+        En producción
+      </div>
+      <h3 class="m-0 mb-2 text-xl font-semibold tracking-[-0.015em] text-[var(--fg)]">
+        SENAG — Seguimiento académico
+      </h3>
+      <p class="m-0 text-sm leading-[1.6] text-[var(--muted)]">
+        Plataforma para el SENA que centraliza el avance por competencias de
+        los aprendices, genera reportes automáticos y le da a instructores y
+        coordinadores datos para decidir. Reemplaza un seguimiento que antes
+        era manual.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class={chip}>Node.js</span>
+        <span class={chip}>React</span>
+        <span class={chip}>MySQL</span>
+      </div>
+      <div class="mt-5 flex gap-[18px] border-t border-[var(--line)] pt-[18px]">
+        <a
+          href="https://senag.app/"
+          target="_blank"
+          rel="noopener"
+          class="text-sm font-semibold text-[var(--accent)]"
+        >
+          Ver en vivo →
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <article data-tags="react node" class:list={[card, "flex flex-col"]}>
+    <div class="h-[200px] overflow-hidden border-b border-[var(--line)]">
+      <img
+        src="/projects/perfumeriapalomino.jpeg"
+        alt="Captura del proyecto Perfumería Palomino"
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover object-top"
+      />
+    </div>
+    <div class="flex flex-1 flex-col p-6">
+      <div class="mb-3.5 inline-flex w-fit items-center gap-[7px] rounded-full border border-[var(--line)] bg-[var(--bg2)] px-[11px] py-[5px] font-mono text-[11px] text-[var(--accent)]">
+        −60% <span class="text-[var(--muted)]">tiempo de registro</span>
+      </div>
+      <h3 class="m-0 mb-2 text-xl font-semibold tracking-[-0.015em] text-[var(--fg)]">
+        Perfumería Palomino
+      </h3>
+      <p class="m-0 text-sm leading-[1.6] text-[var(--muted)]">
+        Ventas, inventario, clientes y proveedores en un solo panel, con
+        reportes en tiempo real. Antes todo se llevaba a mano.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class={chip}>React</span>
+        <span class={chip}>Node.js</span>
+        <span class={chip}>Tailwind</span>
+      </div>
+    </div>
+  </article>
+
+  <article
+    data-tags="node"
+    class:list={[card, "md:col-span-2 grid md:grid-cols-[1fr_1.05fr]"]}
+  >
+    <div class="flex flex-col justify-center p-8">
+      <div class="mb-3.5 inline-flex w-fit items-center gap-[7px] rounded-full border border-[var(--line)] bg-[var(--bg2)] px-[11px] py-[5px] font-mono text-[11px] text-[var(--accent)]">
+        Open source
+      </div>
+      <h3 class="m-0 mb-2.5 text-[22px] font-semibold tracking-[-0.015em] text-[var(--fg)]">
+        Auto-Notion-Scheduler
+      </h3>
+      <p class="m-0 max-w-[46ch] text-[15px] leading-[1.6] text-[var(--muted)]">
+        Herramienta en Node.js que se conecta a la API de Notion y ejecuta
+        tareas programadas por horario. Escrita desde cero para dejar de
+        repetir trabajo diario a mano.
+      </p>
+      <div class="mt-[18px] flex gap-2">
+        <span class={chip}>Node.js</span>
+        <span class={chip}>Notion API</span>
+      </div>
+      <a
+        href="https://github.com/valleedev/auto-notion-scheduler"
+        target="_blank"
+        rel="noopener"
+        class="mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-[var(--accent)]"
+      >
+        Ver el código →
+      </a>
+    </div>
+    <div class="min-h-[260px] overflow-hidden border-t border-[var(--line)] md:border-t-0 md:border-l">
+      <img
+        src="/projects/autonotion.png"
+        alt="Captura del proyecto Auto-Notion-Scheduler"
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover object-top"
+      />
+    </div>
+  </article>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const filters = document.getElementById("project-filters")
+    const grid = document.getElementById("project-grid")
+    if (!filters || !grid || filters.dataset.wired) return
+    filters.dataset.wired = "1"
+
+    filters.querySelectorAll<HTMLButtonElement>("button[data-filter]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-filter")
+        filters.querySelectorAll<HTMLButtonElement>("button[data-filter]").forEach((b) => {
+          const on = b === btn
+          b.classList.toggle("border-[var(--accent)]", on)
+          b.classList.toggle("bg-[var(--accent)]", on)
+          b.classList.toggle("text-[var(--accent-ink)]", on)
+          b.classList.toggle("border-[var(--line)]", !on)
+          b.classList.toggle("text-[var(--muted)]", !on)
+        })
+        grid.querySelectorAll<HTMLElement>("article[data-tags]").forEach((article) => {
+          const match = key === "all" || (article.getAttribute("data-tags") || "").includes(key || "")
+          article.style.display = match ? "" : "none"
+        })
+      })
+    })
+  })
+</script>

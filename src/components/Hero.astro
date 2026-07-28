@@ -1,56 +1,160 @@
 ---
-const personalImageAlt =
-  "Foto de perfil de Johan Sebastian Valle B., desarrollador de software fullstack"
+const personalImageAlt = "Johan Sebastián Valle B."
 import Badge from "@/components/Badge.astro"
 import LinkedInIcon from "@/components/icons/LinkedIn.astro"
 import MailIcon from "@/components/icons/Mail.astro"
 import DownloadIcon from "@/components/icons/Download.astro"
 import GitHubIcon from "@/components/icons/GitHub.astro"
-import SocialPill from "@/components/SocialPill.astro"
+
+const METRICS = [
+  { value: 4, suffix: "+", label: "Años construyendo software" },
+  { value: 12, suffix: "+", label: "Proyectos entregados" },
+  { value: 60, suffix: "%", label: "Menos tiempo operativo para clientes" },
+  { value: 95, suffix: "+", label: "Lighthouse en producción" },
+]
 ---
 
-<div class="max-w-xl">
-  <div class="flex gap-4 mb-4">
-    <img
-      class="rounded-full shadow-lg w-24 h-24 object-cover object-top"
-      src="/sebasvalle.webp"
-      alt={personalImageAlt}
-    />
+<div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.35fr_1fr]">
+  <div style="animation: rise .7s cubic-bezier(.2,.7,.2,1) both">
     <a
       href="https://linkedin.com/in/sebasvalle"
       target="_blank"
       rel="noopener"
-      class="flex items-center transition md:justify-center md:hover:scale-105"
+      class="mb-6 inline-flex"
     >
-      <Badge>Disponible para trabajar</Badge>
+      <Badge>Disponible para nuevos proyectos</Badge>
     </a>
+    <h1
+      class="m-0 text-[42px] font-bold leading-[1.05] tracking-[-0.035em] text-[var(--fg)] sm:text-[52px] lg:text-[60px] lg:leading-[1.03]"
+      style="text-wrap: balance"
+    >
+      <span>Construyo software que le quita</span>
+      <span class="text-[var(--accent)]">trabajo manual</span>
+      <span>a tu equipo.</span>
+    </h1>
+    <p
+      class="mt-6 max-w-[56ch] text-lg text-[var(--muted)] sm:text-[19px]"
+      style="line-height: 1.65; text-wrap: pretty"
+    >
+      Soy Johan Sebastián Valle, desarrollador Fullstack (React, Next.js,
+      Node.js, NestJS). Cuatro años entregando aplicaciones listas para
+      producción a startups, empresas y al sector público.
+    </p>
+    <nav class="mt-8 flex flex-wrap gap-3">
+      <a
+        href="/Johan Sebastian Valle B. Curriculum.pdf"
+        download
+        class="inline-flex items-center gap-[9px] rounded-full bg-[var(--accent)] px-[22px] py-[13px] text-[15px] font-semibold text-[var(--accent-ink)] shadow-[0_10px_30px_-12px_var(--accent)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-14px_var(--accent)]"
+      >
+        <DownloadIcon class="size-[17px]" />
+        Descargar CV
+      </a>
+      <a
+        href="mailto:vallebarbaranj@gmail.com"
+        class="inline-flex items-center gap-[9px] rounded-full border border-[var(--line2)] px-[22px] py-[13px] text-[15px] font-medium text-[var(--fg)] transition hover:-translate-y-0.5 hover:bg-[var(--bg2)]"
+      >
+        <MailIcon class="size-[17px]" />
+        Escríbeme
+      </a>
+      <a
+        href="https://linkedin.com/in/sebasvalle"
+        target="_blank"
+        rel="noopener"
+        title="LinkedIn"
+        class="inline-flex h-[46px] w-[46px] items-center justify-center rounded-full border border-[var(--line)] text-[var(--muted)] transition hover:-translate-y-0.5 hover:border-[var(--line2)] hover:text-[var(--fg)]"
+      >
+        <LinkedInIcon class="size-[18px]" />
+      </a>
+      <a
+        href="https://github.com/valleedev"
+        target="_blank"
+        rel="noopener"
+        title="GitHub"
+        class="inline-flex h-[46px] w-[46px] items-center justify-center rounded-full border border-[var(--line)] text-[var(--muted)] transition hover:-translate-y-0.5 hover:border-[var(--line2)] hover:text-[var(--fg)]"
+      >
+        <GitHubIcon class="size-[18px]" />
+      </a>
+    </nav>
   </div>
-  <h1
-    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+
+  <div
+    class="relative mx-auto hidden sm:block"
+    style="animation: rise .7s cubic-bezier(.2,.7,.2,1) .12s both"
   >
-    Johan Sebastian Valle B.
-  </h1>
-  <p
-    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
-  >
-    <strong>Desarrollador Fullstack</strong> especializado en <strong>React, Next.js, Node.js y NestJS</strong>. Transformo ideas en aplicaciones web robustas que automatizan procesos, reducen carga operativa y están listas para producción desde el día uno.
-  </p>
-  <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="mailto:vallebarbaranj@gmail.com">
-      <MailIcon class="size-4" />
-      Contáctame
-    </SocialPill>
-    <SocialPill href="https://linkedin.com/in/sebasvalle">
-      <LinkedInIcon class="size-4" />
-      LinkedIn
-    </SocialPill>
-    <SocialPill href="https://github.com/valleedev">
-      <GitHubIcon class="size-4" />
-      GitHub
-    </SocialPill>
-    <SocialPill href="/Johan Sebastian Valle B. Curriculum.pdf" download variant="primary">
-      <DownloadIcon class="size-4" />
-      Descargar CV
-    </SocialPill>
-  </nav>
+    <div
+      class="absolute -left-[45px] -top-[51px] h-[603px] w-[388px] blur-md"
+      style="border-radius: 28px; background: radial-gradient(circle at 30% 20%, var(--glow), transparent 65%)"
+    >
+    </div>
+    <img
+      src="/me.jpeg"
+      alt={personalImageAlt}
+      class="relative block h-[514px] w-[293px] rounded-[22px] border border-[var(--line2)] object-contain"
+      style="animation: floaty 7s ease-in-out infinite"
+    />
+    <div
+      class="absolute left-[10px] top-[459px] flex items-center gap-[10px] rounded-[14px] border border-[var(--line)] px-4 py-[10px]"
+      style="background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(14px); animation: floaty 7s ease-in-out infinite"
+    >
+      <span class="font-mono text-xs text-[var(--muted)]">Ahora en</span>
+      <span class="text-[13px] font-semibold text-[var(--fg)]"
+        >Fábrica de Software · CDITI</span
+      >
+    </div>
+  </div>
 </div>
+
+<div
+  id="hero-metrics"
+  class="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-[18px] border border-[var(--line)] bg-[var(--line)] sm:grid-cols-4"
+>
+  {
+    METRICS.map((metric) => (
+      <div class="bg-[var(--bg)] px-6 py-[26px]">
+        <div class="text-[40px] font-bold tracking-[-0.03em] text-[var(--accent)]">
+          <span data-count={metric.value}>{metric.value}</span>
+          {metric.suffix}
+        </div>
+        <div class="mt-1.5 text-sm text-[var(--muted)]">{metric.label}</div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const wrap = document.getElementById("hero-metrics")
+    if (!wrap || wrap.dataset.wired) return
+    wrap.dataset.wired = "1"
+
+    const run = () => {
+      wrap.dataset.counted = "1"
+      wrap.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
+        const target = parseInt(el.getAttribute("data-count") || "0", 10)
+        const dur = 1100
+        const t0 = performance.now()
+        const step = (now: number) => {
+          const p = Math.min((now - t0) / dur, 1)
+          const eased = 1 - Math.pow(1 - p, 3)
+          el.textContent = String(Math.round(target * eased))
+          if (p < 1) requestAnimationFrame(step)
+        }
+        el.textContent = "0"
+        requestAnimationFrame(step)
+      })
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !wrap.dataset.counted) {
+            run()
+            io.disconnect()
+          }
+        })
+      },
+      { threshold: 0.35 },
+    )
+    io.observe(wrap)
+  })
+</script>

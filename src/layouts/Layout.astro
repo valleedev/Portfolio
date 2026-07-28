@@ -24,7 +24,7 @@ const canonical = Astro.site
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -42,6 +42,13 @@ const canonical = Astro.site
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:site_name" content={siteName} />
@@ -76,11 +83,10 @@ const canonical = Astro.site
     <slot name="head" />
   </head>
 
-  <body class="relative text-black dark:text-white">
+  <body class="relative bg-[var(--bg)] text-[var(--fg)]">
     <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      class="pointer-events-none absolute top-0 left-0 right-0 z-[-2] h-[900px] w-full"
+      style="background: radial-gradient(ellipse 70% 60% at 50% -10%, var(--glow), transparent 70%)"
     >
     </div>
     <Header />
@@ -88,77 +94,109 @@ const canonical = Astro.site
     <Footer />
     <style is:global>
       :root {
-        color-scheme: light dark;
+        color-scheme: dark;
+      }
+
+      html[data-theme="dark"] {
+        --bg: #0a0a0c;
+        --bg2: rgba(255, 255, 255, 0.035);
+        --card: rgba(255, 255, 255, 0.045);
+        --fg: #f5f5f4;
+        --muted: rgba(245, 245, 244, 0.6);
+        --line: rgba(255, 255, 255, 0.1);
+        --line2: rgba(255, 255, 255, 0.18);
+        --accent: #51e4b8;
+        --accent-ink: #04120e;
+        --glow: rgba(81, 228, 184, 0.18);
+        color-scheme: dark;
+      }
+
+      html[data-theme="light"] {
+        --bg: #fafaf8;
+        --bg2: #ffffff;
+        --card: #ffffff;
+        --fg: #14141a;
+        --muted: rgba(20, 20, 26, 0.62);
+        --line: rgba(20, 20, 26, 0.1);
+        --line2: rgba(20, 20, 26, 0.2);
+        --accent: #0e9e7c;
+        --accent-ink: #ffffff;
+        --glow: rgba(14, 158, 124, 0.12);
+        color-scheme: light;
       }
 
       html {
         font-family: "Onest Variable", system-ui, sans-serif;
         scroll-behavior: smooth;
+        background: var(--bg);
       }
 
       body {
-        color: rgba(17, 17, 17, 0.9);
         display: flex;
         flex-direction: column;
         min-height: 100vh;
         overscroll-behavior: none;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      ::selection {
+        background: var(--accent);
+        color: var(--accent-ink);
       }
 
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
         }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: rgba(255, 255, 255, 0.9);
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
         }
       }
 
-      #header-nav {
-        animation: blur linear both 0.5s;
-        animation-timeline: scroll();
-        animation-range: 0 500px;
-      }
-
-      @keyframes blur {
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
         to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
+          opacity: 1;
+          transform: none;
         }
       }
 
-      @media (prefers-color-scheme: dark) {
-        @keyframes blur {
-          from {
-            border: 0px;
-          }
-          to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            border-width: 1px;
-            border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 9999px;
-          }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes pulseDot {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.45;
+          transform: scale(0.75);
+        }
+      }
+
+      @keyframes floaty {
+        0%,
+        100% {
+          transform: translateY(0) rotate(1.5deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(1.5deg);
         }
       }
     </style>

@@ -3,7 +3,12 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	darkMode: 'class',
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				sans: ['"Onest Variable"', "system-ui", "sans-serif"],
+				mono: ['"JetBrains Mono"', "monospace"],
+			},
+		},
 	},
 	plugins: [],
 }

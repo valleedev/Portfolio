@@ -2,16 +2,11 @@
 import Layout from "@/layouts/Layout.astro"
 
 import AboutMe from "@/components/AboutMe.astro"
-import Briefcase from "@/components/icons/Briefcase.astro"
-import CodeIcon from "@/components/icons/Code.astro"
+import Contact from "@/components/Contact.astro"
 import Experience from "@/components/Experience.astro"
-import ProfileCheck from "@/components/icons/ProfileCheck.astro"
 import Projects from "@/components/Projects.astro"
-import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
-import TitleSection from "@/components/TitleSection.astro"
 import TechStack from "@/components/TechStack.astro"
-import LayersIcon from "@/components/icons/Layers.astro"
 
 const structuredData = [
   {
@@ -57,42 +52,49 @@ const structuredData = [
   <script slot="head" type="application/ld+json">
     {JSON.stringify(structuredData, null, 2)}
   </script>
-  <main class="px-4">
-    <SectionContainer class="py-16 md:py-36">
+  <main id="top" class="relative z-[1] px-6 pt-[74px]">
+    <section class="mx-auto max-w-[1080px] py-16 sm:py-20">
       <Hero />
-    </SectionContainer>
-    <div class="space-y-24">
-      <SectionContainer id="stack">
-        <TitleSection>
-          <LayersIcon class="size-8" />
-          Stack Técnico
-        </TitleSection>
-        <TechStack />
-      </SectionContainer>
+    </section>
 
-      <SectionContainer id="experiencia">
-        <TitleSection>
-          <Briefcase class="size-8" />
-          Experiencia laboral
-        </TitleSection>
-        <Experience />
-      </SectionContainer>
+    <section
+      id="stack"
+      class="mx-auto max-w-[1080px] scroll-mt-[90px] pt-20"
+      style="animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 25%"
+    >
+      <TechStack />
+    </section>
 
-      <SectionContainer id="proyectos">
-        <TitleSection>
-          <CodeIcon class="size-7" />
-          Proyectos
-        </TitleSection>
-        <Projects />
-      </SectionContainer>
+    <section
+      id="proyectos"
+      class="mx-auto max-w-[1080px] scroll-mt-[90px] pt-24 sm:pt-28"
+      style="animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 25%"
+    >
+      <Projects />
+    </section>
 
-      <SectionContainer id="sobre-mi">
-        <TitleSection>
-          <ProfileCheck class="size-8" />
-          Sobre mí
-        </TitleSection>
-        <AboutMe />
-      </SectionContainer>
-    </div>
+    <section
+      id="experiencia"
+      class="mx-auto max-w-[1080px] scroll-mt-[90px] pt-24 sm:pt-28"
+      style="animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 25%"
+    >
+      <Experience />
+    </section>
+
+    <section
+      id="sobre-mi"
+      class="mx-auto max-w-[1080px] scroll-mt-[90px] pt-24 sm:pt-28"
+      style="animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 25%"
+    >
+      <AboutMe />
+    </section>
+
+    <section
+      id="contacto"
+      class="mx-auto max-w-[1080px] scroll-mt-[90px] pt-24 sm:pt-28"
+      style="animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 25%"
+    >
+      <Contact />
+    </section>
   </main>
 </Layout>

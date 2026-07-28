@@ -1,36 +1,43 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
+
 const EXPERIENCE = [
   {
-    date: "Actualmente...",
+    dateLabel: "2024 — Actualidad",
+    typeLabel: "Tiempo completo",
+    current: true,
     title: "Desarrollador Full Stack",
-    company: "Fábrica de Software — Centro de Diseño e Innovación Tecnológica Industrial",
+    company:
+      "Fábrica de Software — Centro de Diseño e Innovación Tecnológica Industrial",
     description:
-      "Desarrollo del módulo de portafolio del aprendiz y gestión de archivos privados en el aplicativo Zajuna. Implemento scripts backend para procesos internos, integro servicios y colaboro en la mejora continua de la plataforma. Stack: Node.js, React, bases de datos relacionales.",
+      "Módulo de portafolio del aprendiz y gestión de archivos privados en el aplicativo Zajuna. Scripts backend para procesos internos, integración de servicios y mejora continua de la plataforma.",
+    tags: ["Node.js", "React", "SQL"],
   },
   {
-    date: "2022 - 2023",
+    dateLabel: "2023 — 2024",
+    typeLabel: "Independiente",
+    title: "Desarrollador Freelance",
+    company: "Clientes de distintos sectores",
+    description:
+      "Soluciones web a medida: sistemas de ventas, landing pages y automatizaciones. Ciclo completo — requerimientos, desarrollo, despliegue y soporte.",
+  },
+  {
+    dateLabel: "2022 — 2023",
+    typeLabel: "Liderazgo técnico",
     title: "Líder de Desarrollo",
     company: "Raptor Technologies",
     description:
-      "Lideré el equipo de desarrollo de una aplicación web para una constructora regional. Definí la arquitectura técnica, distribuí tareas, revisé código y coordiné entregas con el cliente. La aplicación optimizó la gestión de proyectos constructivos, reduciendo el tiempo de seguimiento en un 40%.",
-  },
-  {
-    date: "2023 - 2024",
-    title: "Desarrollador Freelance",
-    company: "Freelance",
-    description:
-      "Desarrollé soluciones web a medida para clientes en distintos sectores: sistemas de ventas, landing pages y automatizaciones. Gestioné el ciclo completo: levantamiento de requerimientos, desarrollo, despliegue y soporte.",
+      "Lideré el equipo que construyó la aplicación web de una constructora regional: arquitectura, reparto de tareas, revisión de código y entregas con el cliente. El seguimiento de obra pasó a tomar un 40% menos de tiempo.",
   },
 ]
 ---
 
-<ol class="relative mt-16">
-  {
-    EXPERIENCE.map((experience) => (
-      <li class="">
-        <ExperienceItem {...experience} />
-      </li>
-    ))
-  }
+<div class="flex items-baseline gap-3.5">
+  <span class="font-mono text-xs text-[var(--accent)]">03</span>
+  <h2 class="m-0 text-[34px] font-semibold tracking-[-0.03em] text-[var(--fg)]">
+    Experiencia
+  </h2>
+</div>
+<ol class="relative m-0 mt-11 list-none p-0">
+  {EXPERIENCE.map((experience) => <ExperienceItem {...experience} />)}
 </ol>

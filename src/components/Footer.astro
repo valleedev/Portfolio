@@ -3,26 +3,30 @@ const currentYear = new Date().getFullYear()
 ---
 
 <footer
-  class="opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
+  class="relative z-[1] mx-auto mt-20 flex w-full max-w-[1080px] flex-wrap items-center justify-between gap-5 border-t border-[var(--line)] px-6 pb-10 pt-7"
 >
-  <div
-    class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
-  >
-    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
-      >&copy; {currentYear}
-      <a href="https://portfolio.jsvb.dev/" class="hover:underline">Johan Sebastian Valle B.</a>
-    </span>
-    <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+  <span class="text-sm text-[var(--muted)]">
+    © {currentYear}
+    <a href="https://portfolio.jsvb.dev/" class="hover:underline"
+      >Johan Sebastian Valle B.</a
     >
-      <li>
-        <a href="/#experiencia" class="hover:underline me-4 md:me-6">Experiencia</a>
-      </li>
-      <li>
-        <a id="contacto" href="mailto:vallebarbaranj@gmail.com" class="hover:underline"
-          >Contacto</a
-        >
-      </li>
-    </ul>
+  </span>
+  <div class="flex gap-6 text-sm">
+    <a
+      href="https://linkedin.com/in/sebasvalle"
+      target="_blank"
+      rel="noopener"
+      class="text-[var(--muted)] hover:text-[var(--fg)]">LinkedIn</a
+    >
+    <a
+      href="https://github.com/valleedev"
+      target="_blank"
+      rel="noopener"
+      class="text-[var(--muted)] hover:text-[var(--fg)]">GitHub</a
+    >
+    <a
+      href="mailto:vallebarbaranj@gmail.com"
+      class="text-[var(--muted)] hover:text-[var(--fg)]">Contacto</a
+    >
   </div>
 </footer>
